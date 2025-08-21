@@ -55,6 +55,8 @@ def main():
       # Project Due Date delete rows of previous years
       df['Project Due Date'] = pd.to_datetime(df['Project Due Date'], errors='coerce')
       df = df[((df['Project Due Date'].dt.year == datetime.now().year) & (df["Project Due Date"].dt.month == datetime.now().month)) | (df['Project Due Date'] > datetime.now())]
+      df['Project Due Date'] = df['Project Due Date'].dt.strftime('%m/%d/%Y')
+        
 
       # Filter out bad phone numbers and write them to a seperate sheet called 'Bad Number'
       df = df.drop_duplicates(subset='Phone')
@@ -162,4 +164,5 @@ def main():
       print(f"Total running time: {int(executionTime //60)} minutes {executionTime %60:.1f} seconds.")
 
 if __name__ == "__main__":
+
       main()
