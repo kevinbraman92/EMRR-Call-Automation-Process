@@ -1,4 +1,3 @@
-USE ChartFinder
 SELECT DISTINCT
 
 	om.outreachstatus											AS [Status],
@@ -181,5 +180,6 @@ WHERE
 	AND lorm.Name IN ('EMR - Remote', 'EMR - Remote Queued')
 	AND om.OutreachStatus IN ('Unscheduled', 'PNP Released', 'Escalated', 'Escalated/Past Due', 'Acct Mgmt Research')
 	
+
 
 
