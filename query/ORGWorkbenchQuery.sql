@@ -30,7 +30,7 @@ SELECT DISTINCT
 	ISNULL(NULL,'')												AS [** ScheduleStart],
 	ISNULL(CONVERT(VARCHAR(11), om.ScheduleDate, 101), '')		AS [ScheduleDate],
 	ISNULL(si.Address1,'')										AS [Address],
-	ISNULL(si.Address2,'')										AS [Address2],   		
+	ISNULL(si.Address2,'')										AS [Address2],   		-- Not Normally in Workbench
 	ISNULL(si.City,'')											AS [City],
 	ISNULL(si.State,'')											AS [State],
 	ISNULL(si.ZIP,'')											AS [Zip],
@@ -71,7 +71,7 @@ SELECT DISTINCT
 	cast(p.ChartReviewYear as varchar(10))						AS [ProjectYear],
 	ISNULL(stm.Region,'')										AS [Market],
 	ISNULL(stm.BigRegion,'')									AS [Region],
-	ISNULL(sts.FirstName + ' ' + sts.LastName,'')				AS [RegionalSupervisor], 
+	ISNULL(sts.FirstName + ' ' + sts.LastName,'')				AS [RegionalSupervisor], --  Normally ID # in Workbench
 	ISNULL(AuditTypes.AuditType,'')								AS [Audit Type],
 	ISNULL(p.Wave,'')											AS [Wave],
 	ISNULL(NULL,'')												AS [EMRStatus],
@@ -176,10 +176,9 @@ FROM
 
 
 WHERE
-	p.[Status] = 3
+	p.Status = 3
 	AND lorm.Name IN ('EMR - Remote', 'EMR - Remote Queued')
 	AND om.OutreachStatus IN ('Unscheduled', 'PNP Released', 'Escalated', 'Escalated/Past Due', 'Acct Mgmt Research')
 	
-
 
 
