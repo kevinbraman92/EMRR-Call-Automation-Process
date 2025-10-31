@@ -16,8 +16,8 @@ warnings.filterwarnings("ignore", message="Workbook contains no default style")
 CURRENT_DATE = datetime.now().strftime('%m.%d.%y')
 QUERY = "ORGWorkbenchQuery.sql"
 DRIVER = "ODBC Driver 17 for SQL Server"
-SERVER = "PLACEHOLDER"
-DATABASE = "PLACEHOLDER"
+SERVER = "YOUR_SERVER_NAME"
+DATABASE = "YOUR_DATABASE_NAME"
 CONNECTION = (
     f"Driver={DRIVER};"
     f"Server={SERVER}; "
@@ -166,3 +166,4 @@ def main():
 if __name__ == "__main__":
 
       main()
+
